@@ -10,7 +10,7 @@ var collections = ["scrapedData"];
 var db = require("./models");
 var PORT = 8080;
 var app = express();
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/exampledb";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsArticledb";
 mongoose.connect(MONGODB_URI);
 
 app.use(logger("dev"));
@@ -46,5 +46,6 @@ app.get("/scrape", function(req, res) {
 });
 
 app.listen(PORT, function() {
+    console.log("CONGRATULATIONS!")
     console.log("App running on http://localhost:8080 "  + "!");
   });
