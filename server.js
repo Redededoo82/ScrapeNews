@@ -20,7 +20,7 @@ app.use(express.static("public"));
 
 //get route for scraping website//
 app.get("/scrape", function(req, res) {
-    axios.get("http://www.blahblahblah.com/").then(function(response) {
+    axios.get("http://www.infowars.com/").then(function(response) {
         var $ = cheerio.load(response.data);
 
         //grabbing element from body of website
@@ -32,10 +32,10 @@ app.get("/scrape", function(req, res) {
           result.link = $(this)
             .children("a")
             .attr("href");
-            db.Article.create(result)
-        .then(function(dbArticle) {
+            db.NewsArticle.create(result)
+        .then(function(dbNewsArticle) {
           // View the added result in the console
-          console.log(dbArticle);
+          console.log(dbNewsArticle);
         })
         .catch(function(err) {
             console.log(err);
