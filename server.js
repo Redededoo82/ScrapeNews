@@ -20,11 +20,11 @@ app.use(express.static("public"));
 
 //get route for scraping website//
 app.get("/scrape", function(req, res) {
-    axios.get("http://www.infowars.com/").then(function(response) {
+    axios.get("http://www.infowars.com/news").then(function(response) {
         var $ = cheerio.load(response.data);
 
         //grabbing element from body of website
-        $("article h2").each(function(i, element) {
+        $("news h4").each(function(i, element) {
             var result = {};
             result.title = $(this)
             .children("a")
@@ -41,7 +41,7 @@ app.get("/scrape", function(req, res) {
             console.log(err);
         });
     });
-    res.send("Scrape Complete");
+    res.send("Scrape Complete lol");
   });
 });
 
