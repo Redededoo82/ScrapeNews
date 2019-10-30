@@ -10,7 +10,7 @@ var collections = ["scrapedData"];
 var db = require("./models");
 var PORT = 8080;
 var app = express();
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsArticledb";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user420:password420@ds035836.mlab.com:35836/heroku_6x4z9rtz";
 mongoose.connect(MONGODB_URI);
 
 app.use(logger("dev"));
